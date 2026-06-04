@@ -203,7 +203,7 @@ with st.sidebar:
     min_date = df["Date_reported"].min().date()
     max_date = df["Date_reported"].max().date()
     date_range = st.date_input("Date Range",
-        [pd.to_datetime("2020-01-01").date(), max_date],
+        [min_date, max_date],
         min_value=min_date, max_value=max_date)
     all_regions = sorted(df["Region"].unique().tolist())
     sel_regions = st.multiselect("Regions", all_regions, default=all_regions)
